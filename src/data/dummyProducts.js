@@ -27,7 +27,7 @@ const dummyProducts = [
 			"https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1UQ7N05AzKtrH9cv3ApNwu56O4ocb9WecJLTQzbtF_De6Tg9-h3lvACJwak_Sh2G69n4a-LtpN_L_0FY4Zp7pWNl0gxGpKR9QT2Q6e4oLKzpxctVjrP62EA",
 	},
 	{
-		id: 0,
+		id: 1,
 		name: "Really Cool Chair",
 		description: "What can I say, it's a really cool chair.",
 		price: 350.0, // floating point numbers
