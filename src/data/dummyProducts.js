@@ -1,5 +1,7 @@
 /*
 
+Product
+
 {
     id: int,
     name: string,
@@ -35,6 +37,16 @@ const dummyProducts = [
 		seller: "Eli",
 		image:
 			"https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOK7fRyIrmxv65kDpFYxhAtYl9xWCQHj9CGq4dff_QQTGCuPUQ__Z76qFaPIGcOcLmPl4lAF6DL_yjyUAGEIyQF5RcXRbKBzw6A5V9jPY",
+	},
+	{
+		id: 2,
+		name: "Very Lame Backpack",
+		description: "This is not a very cool backpack, not enough dinosaurs.",
+		price: 80.0,
+		discount: 15,
+		seller: "Bob",
+		image:
+			"https://solo-ny.com/cdn/shop/files/UBN795-44_HO_4908b25b-a4e1-47e4-abe5-02c424367b47.jpg?v=1695141176&width=1080",
 	},
 ];
 
