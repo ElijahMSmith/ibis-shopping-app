@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ProductListing from "./ProductListing";
-import SearchBar from "./SearchBar";
+import SearchBar from "../miscellaneous/SearchBar";
 
-function Table(props) {
+function Table({ data, addQuantityToProduct }) {
 	const [filter, setFilter] = useState("");
 
-	const filteredData = props.data.filter((item) => {
+	const filteredData = data.filter((item) => {
 		return item.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
 	});
 
@@ -17,7 +17,11 @@ function Table(props) {
 					{filteredData.map((product) => {
 						return (
 							<tr key={product.id}>
-								<ProductListing product={product} textSize={20} />
+								<ProductListing
+									product={product}
+									addQuantityToProduct={addQuantityToProduct}
+									textSize={20}
+								/>
 							</tr>
 						);
 					})}
