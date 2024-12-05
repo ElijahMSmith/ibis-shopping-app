@@ -9,7 +9,7 @@
 
 */
 
-function CartDisplay({ cart }) {
+function CartDisplay({ cart, clearProductByID }) {
 	return (
 		<div>
 			<h3>Your Cart</h3>
@@ -22,6 +22,13 @@ function CartDisplay({ cart }) {
 							<li key={productWithQuantity.product.id}>
 								{productWithQuantity.quantity}x{" "}
 								{productWithQuantity.product.name}
+								<button
+									onClick={() =>
+										clearProductByID(productWithQuantity.product.id)
+									}
+								>
+									Clear
+								</button>
 							</li>
 						);
 					})}
