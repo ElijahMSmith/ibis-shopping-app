@@ -10,14 +10,16 @@ function SearchBar({ setNewFilter }) {
 	}
 
 	return (
-		<form onSubmit={handleFormSubmission}>
-			<p>Search for products</p>
-			<input
-				onChange={(e) => setSearchTerm(e.target.value)}
-				value={searchTerm}
-			></input>
-			<button type="submit">Search</button>
-		</form>
+		<div style={{ marginBottom: 10 }}>
+			<form onSubmit={handleFormSubmission}>
+				<p>Search for products</p>
+				<input
+					onChange={(e) => setSearchTerm(e.target.value)}
+					value={searchTerm}
+				></input>
+				<button type="submit">Search</button>
+			</form>
+		</div>
 	);
 }
 

@@ -3,7 +3,15 @@ import QuantitySelector from "../miscellaneous/QuantitySelector";
 function ProductListing({ product, textSize, addQuantityToProduct }) {
 	return (
 		<td>
-			<div style={{ border: "1px solid black", width: "70vw" }}>
+			<div
+				style={{
+					border: "1px solid black",
+					width: "100%",
+					display: "flex",
+					alignItems: "center",
+					padding: 20,
+				}}
+			>
 				<img style={{ maxWidth: 300 }} src={product.image} />
 
 				<div
@@ -11,7 +19,6 @@ function ProductListing({ product, textSize, addQuantityToProduct }) {
 						marginLeft: 32,
 						display: "flex",
 						flexDirection: "column",
-						justifyContent: "center",
 					}}
 				>
 					<h2>{product.name}</h2>
@@ -19,10 +26,10 @@ function ProductListing({ product, textSize, addQuantityToProduct }) {
 						{product.seller} - ${product.price}
 					</h4>
 					<p style={{ fontSize: textSize }}>{product.description}</p>
+					<QuantitySelector
+						addQuantity={(howMuch) => addQuantityToProduct(product, howMuch)}
+					/>
 				</div>
-				<QuantitySelector
-					addQuantity={(howMuch) => addQuantityToProduct(product, howMuch)}
-				/>
 			</div>
 		</td>
 	);

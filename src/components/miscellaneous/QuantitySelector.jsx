@@ -4,7 +4,7 @@ function QuantitySelector({ addQuantity }) {
 	const [quantity, setQuantity] = useState(1);
 
 	return (
-		<div style={{ marginLeft: 30, marginBottom: 30 }}>
+		<div>
 			<button
 				style={{ height: 25, width: 25 }}
 				onClick={() => {

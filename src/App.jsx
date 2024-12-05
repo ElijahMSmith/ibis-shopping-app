@@ -3,30 +3,6 @@ import CartDisplay from "./components/miscellaneous/CartDisplay";
 import Table from "./components/productTable/Table";
 import { dummyProducts } from "./data/dummyProducts";
 
-/*
-
-App <- Put cart state
-    Table
-        SearchBar
-        Group Of
-            ProductListing <- YES (add to cart)
-            ProductListing
-            ...
-    Cart Display <- YES (see current items, remove items)
-
-*/
-
-/*
-
-[
-    {
-        product: Product;
-        quantity: int;
-    }
-]
-
-*/
-
 function App() {
 	const [cart, setCart] = useState([]);
 
