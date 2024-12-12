@@ -1,0 +1,20 @@
+#toastContainer {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	min-width: 240px;
+	min-height: 60px;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: rgb(117, 255, 209);
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	font-family: "Gill Sans, sans-serif";
+}
+
+#toastText {
+	color: #ffffff;
+	font-weight: 600;
+}

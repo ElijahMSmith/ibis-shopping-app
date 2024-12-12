@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ToastContext } from "./Toast";
 
 function QuantitySelector({ addQuantity }) {
 	const [quantity, setQuantity] = useState(1);
+
+	const toast = useContext(ToastContext);
+
+	function updateQuantity(newQuantity) {
+		const quantityAsNumber = Number(newQuantity);
+		if (quantityAsNumber < 0) {
+			console.log("invalid", quantityAsNumber);
+			toast.error(`Invalid quantity ${quantityAsNumber}`);
+			return;
+		}
+		setQuantity(quantityAsNumber);
+	}
 
 	return (
 		<div>
 			<button
 				style={{ height: 25, width: 25 }}
 				onClick={() => {
-					setQuantity(quantity - 1);
+					updateQuantity(quantity - 1);
 				}}
 			>
 				-
@@ -17,26 +30,23 @@ function QuantitySelector({ addQuantity }) {
 				type="number"
 				style={{ width: 25 }}
 				value={quantity}
-				onChange={(e) => {
-					console.log(e.target.value, typeof e.target.value);
-					const newQuantity = Number(e.target.value);
-					if (Number.isNaN(newQuantity)) {
-						console.error("invalid quantity", event.target.value);
-						return;
-					}
-
-					setQuantity(newQuantity);
-				}}
+				onChange={(e) => updateQuantity(e.target.value)}
 			></input>
 			<button
 				style={{ height: 25, width: 25 }}
 				onClick={() => {
-					setQuantity(quantity + 1);
+					updateQuantity(quantity + 1);
 				}}
 			>
 				+
 			</button>
-			<button style={{ marginLeft: 5 }} onClick={() => addQuantity(quantity)}>
+			<button
+				style={{ marginLeft: 5 }}
+				onClick={() => {
+					addQuantity(quantity);
+					toast.success(`Added ${quantity} item to cart!`);
+				}}
+			>
 				Add To Cart
 			</button>
 		</div>

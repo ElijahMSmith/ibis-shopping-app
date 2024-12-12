@@ -1,15 +1,9 @@
-/*
-
-[
-    {
-        product: Product;
-        quantity: int;
-    }
-]
-
-*/
+import { useContext } from "react";
+import { ToastContext } from "./Toast";
 
 function CartDisplay({ cart, clearProductByID }) {
+	const toast = useContext(ToastContext);
+
 	return (
 		<div>
 			<h3>Your Cart</h3>
@@ -23,9 +17,13 @@ function CartDisplay({ cart, clearProductByID }) {
 								{productWithQuantity.quantity}x{" "}
 								{productWithQuantity.product.name}
 								<button
-									onClick={() =>
-										clearProductByID(productWithQuantity.product.id)
-									}
+									style={{ marginLeft: 10 }}
+									onClick={() => {
+										clearProductByID(productWithQuantity.product.id);
+										toast.warning(
+											`Cleared ${productWithQuantity.product.name} from the cart.`
+										);
+									}}
 								>
 									Clear
 								</button>

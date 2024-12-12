@@ -1,4 +1,5 @@
 import CartDisplay from "./components/miscellaneous/CartDisplay";
+import ToastProvider from "./components/miscellaneous/Toast";
 import Table from "./components/productTable/Table";
 import { dummyProducts } from "./data/dummyProducts";
 import useCart from "./hooks/cart";
@@ -8,11 +9,13 @@ function App() {
 
 	return (
 		<div>
-			<Table
-				data={dummyProducts}
-				addQuantityToProduct={addQuantityToProduct}
-			></Table>
-			<CartDisplay cart={cart} clearProductByID={clearProductByID} />
+			<ToastProvider>
+				<Table
+					data={dummyProducts}
+					addQuantityToProduct={addQuantityToProduct}
+				></Table>
+				<CartDisplay cart={cart} clearProductByID={clearProductByID} />
+			</ToastProvider>
 		</div>
 	);
 }
