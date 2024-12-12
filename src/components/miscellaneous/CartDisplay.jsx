@@ -1,14 +1,3 @@
-/*
-
-[
-    {
-        product: Product;
-        quantity: int;
-    }
-]
-
-*/
-
 function CartDisplay({ cart, clearProductByID }) {
 	return (
 		<div>
@@ -23,9 +12,10 @@ function CartDisplay({ cart, clearProductByID }) {
 								{productWithQuantity.quantity}x{" "}
 								{productWithQuantity.product.name}
 								<button
-									onClick={() =>
-										clearProductByID(productWithQuantity.product.id)
-									}
+									style={{ marginLeft: 10 }}
+									onClick={() => {
+										clearProductByID(productWithQuantity.product.id);
+									}}
 								>
 									Clear
 								</button>

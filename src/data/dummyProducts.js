@@ -15,6 +15,13 @@ Product
     creationDate: date
 }
 
+ProductWithQuantity
+
+{
+    product: Product,
+    quantity: int,
+}
+
 */
 
 const dummyProducts = [

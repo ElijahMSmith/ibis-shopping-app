@@ -3,12 +3,21 @@ import { useState } from "react";
 function QuantitySelector({ addQuantity }) {
 	const [quantity, setQuantity] = useState(1);
 
+	function updateQuantity(newQuantity) {
+		const quantityAsNumber = Number(newQuantity);
+		if (isNaN(quantityAsNumber) || quantityAsNumber < 0) {
+			console.log("invalid quantity", quantityAsNumber);
+			return;
+		}
+		setQuantity(quantityAsNumber);
+	}
+
 	return (
 		<div>
 			<button
 				style={{ height: 25, width: 25 }}
 				onClick={() => {
-					setQuantity(quantity - 1);
+					updateQuantity(quantity - 1);
 				}}
 			>
 				-
@@ -17,26 +26,22 @@ function QuantitySelector({ addQuantity }) {
 				type="number"
 				style={{ width: 25 }}
 				value={quantity}
-				onChange={(e) => {
-					console.log(e.target.value, typeof e.target.value);
-					const newQuantity = Number(e.target.value);
-					if (Number.isNaN(newQuantity)) {
-						console.error("invalid quantity", event.target.value);
-						return;
-					}
-
-					setQuantity(newQuantity);
-				}}
+				onChange={(e) => updateQuantity(e.target.value)}
 			></input>
 			<button
 				style={{ height: 25, width: 25 }}
 				onClick={() => {
-					setQuantity(quantity + 1);
+					updateQuantity(quantity + 1);
 				}}
 			>
 				+
 			</button>
-			<button style={{ marginLeft: 5 }} onClick={() => addQuantity(quantity)}>
+			<button
+				style={{ marginLeft: 5 }}
+				onClick={() => {
+					addQuantity(quantity);
+				}}
+			>
 				Add To Cart
 			</button>
 		</div>
