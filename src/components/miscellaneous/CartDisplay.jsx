@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { ToastContext } from "./Toast";
+
 function CartDisplay({ cart, clearProductByID }) {
+	const { warning } = useContext(ToastContext);
+
 	return (
 		<div>
 			<h3>Your Cart</h3>
@@ -14,6 +19,11 @@ function CartDisplay({ cart, clearProductByID }) {
 								<button
 									style={{ marginLeft: 10 }}
 									onClick={() => {
+										warning(
+											"Cleared " +
+												productWithQuantity.product.name +
+												" from cart."
+										);
 										clearProductByID(productWithQuantity.product.id);
 									}}
 								>

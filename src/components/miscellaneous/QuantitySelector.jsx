@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ToastContext } from "./Toast";
 
 function QuantitySelector({ addQuantity }) {
 	const [quantity, setQuantity] = useState(1);
 
+	const { success, error } = useContext(ToastContext);
+
 	function updateQuantity(newQuantity) {
 		const quantityAsNumber = Number(newQuantity);
 		if (isNaN(quantityAsNumber) || quantityAsNumber < 0) {
-			console.log("invalid quantity", quantityAsNumber);
+			error("Invalid quantity '" + newQuantity + "'!");
 			return;
 		}
 		setQuantity(quantityAsNumber);
@@ -40,6 +43,7 @@ function QuantitySelector({ addQuantity }) {
 				style={{ marginLeft: 5 }}
 				onClick={() => {
 					addQuantity(quantity);
+					success("Added to cart!");
 				}}
 			>
 				Add To Cart
