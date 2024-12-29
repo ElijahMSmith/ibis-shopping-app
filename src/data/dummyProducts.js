@@ -8,11 +8,8 @@ Product
     description: string,
     price: float,
     discount: int,
-    group: string,
-    numberAvailable: int,
     seller: string,
     image: string,
-    creationDate: date
 }
 
 ProductWithQuantity
@@ -57,4 +54,18 @@ const dummyProducts = [
 	},
 ];
 
-export { dummyProducts };
+const randomSellers = [
+	"Elijah Smith",
+	"Billy Bob",
+	"Jane Doe",
+	"Pokey LaFarge",
+	"Tom Hiddleston",
+	"Liam Hemsworth",
+];
+
+function pickRandomName() {
+	const index = Math.floor(Math.random() * randomSellers.length);
+	return randomSellers[index];
+}
+
+export { dummyProducts, pickRandomName };
