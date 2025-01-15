@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router";
 import QuantitySelector from "../miscellaneous/QuantitySelector";
 
 function ProductListing({ product, textSize, addQuantityToProduct }) {
+	const navigate = useNavigate();
+
 	return (
 		<td>
 			<div
@@ -21,7 +24,15 @@ function ProductListing({ product, textSize, addQuantityToProduct }) {
 						flexDirection: "column",
 					}}
 				>
-					<h2>{product.name}</h2>
+					<h2
+						onClick={() => navigate(`/products/${product.id}`)}
+						style={{
+							cursor: "pointer",
+							textDecoration: "underline",
+						}}
+					>
+						{product.name}
+					</h2>
 					<h4>
 						{product.seller} - ${product.price}
 					</h4>
